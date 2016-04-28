@@ -1,0 +1,51 @@
+<!-- Design -->
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>View Customers</title>
+
+		<!--JQuery-->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+		<!--Bootstrap Css-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+		<!--JS-->
+		<script src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+	      $(document).ready(function() {
+	          $('.dropdown-toggle').dropdown()
+	      });
+	    </script>
+	</head>
+	
+	<body>
+		<!--Nav  bar-->	
+		<nav class="navbar navbar-default">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Assignment 2</a>
+	    	</div>
+
+	    	<!-- Nav Bar Links-->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav">
+			        <li class="active"><a href="#">View <span class="sr-only">(current)</span></a></li>
+			        <li><a href="customer_add.html">Add</a></li>
+			    </ul>
+			</div> <!--End of 2 links-->
+    	</nav>
+
+    	<form name="customer-info" action="customer_view.php" method="GET">
+    	<h2>The Stuff here?</h2>
+    	</form>
+	</body>
+</html>
