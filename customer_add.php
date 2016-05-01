@@ -1,38 +1,33 @@
 <?php
-	include "connection.php";
-
-	//query - variables must match those in database
-	$query = "INSERT INTO customers(firstName, lastName, address, city, state, zip, email, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-	//String = ssssssss    -->to represent every input variable
-	if($statement = $conn->prepare($query))
-	{
-		$statement->bind_param("ssssssss",
-			$_POST['firstName'],
-			$_POST['lastName'],
-			$_POST['address'],
-			$_POST['city'],
-			$_POST['state'],
-			$_POST['zip'],
-			$_POST['email'],
-			$_POST['phone'] 
-			);
-
-		if($statement->execute())
-		{
-			echo "Successful register!";
-			$statement->close();
-		}
-
-		else
-		{
-			echo "Failure!";
-		}
+	$link = mysqli_connect("www.it354.com", "it354_students", "steinway", "it354_students");
+ 
+	// Check connection
+	if($link === false){
+		die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
-	else
-	{
-		die("Unable to save");
+	
+	// Escape user inputs for security
+	$first_name = mysqli_real_escape_string($link, $_POST['fname']);
+	$last_name = mysqli_real_escape_string($link, $_POST['lName']);
+	$address = mysqli_real_escape_string($link, $_POST['address']);
+	$city = mysqli_real_escape_string($link, $_POST['city']);
+	$state = mysqli_real_escape_string($link, $_POST['state']);
+	$zip = mysqli_real_escape_string($link, $_POST['zip']);
+	$email = mysqli_real_escape_string($link, $_POST['email']);
+	$phone = mysqli_real_escape_string($link, $_POST['phone']);
+	
+	// attempt insert query execution
+	$sql = "INSERT INTO customers (firstName,lastName,address,city,state,zip,email,phone) VALUES ('$first_name', '$last_name', '$address','$city','$state','$zip','$email','$phone')";
+	
+	if(mysqli_query($link, $sql)){
+		echo "Records added successfully.";
+	} else{
+		echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 	}
-
-	$conn->close();
+ 
+ 
+	// close connection
+	mysqli_close($link);
+	
 ?>
+
