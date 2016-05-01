@@ -10,8 +10,8 @@
 	}
 	
 	// Escape user inputs for security
-	$first_name = mysqli_real_escape_string($link, $_POST['fname']);
-	$last_name = mysqli_real_escape_string($link, $_POST['lName']);
+	$first_name = mysqli_real_escape_string($link, $_POST['firstName']);
+	$last_name = mysqli_real_escape_string($link, $_POST['lastName']);
 	$address = mysqli_real_escape_string($link, $_POST['address']);
 	$city = mysqli_real_escape_string($link, $_POST['city']);
 	$state = mysqli_real_escape_string($link, $_POST['state']);
